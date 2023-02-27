@@ -1,4 +1,4 @@
-# rn-components
+# rn-common-components
 
 React Native Shared Components V1
 
