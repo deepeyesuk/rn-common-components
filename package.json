@@ -1,7 +1,7 @@
 {
   "name": "rn-common-components",
-  "version": "0.1.0",
-  "description": "test",
+  "version": "0.2.0",
+  "description": "React Native Shared Components",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
   "types": "lib/typescript/index.d.ts",
@@ -30,7 +30,6 @@
     "test": "jest",
     "typecheck": "tsc --noEmit",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
-    "prepack": "bob build",
     "release": "release-it",
     "example": "yarn --cwd example",
     "bootstrap": "yarn example && yarn install"
@@ -40,7 +39,10 @@
     "ios",
     "android"
   ],
-  "repository": "https://github.com/deepeyesuk/rn-common-components",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deepeyesuk/rn-common-components.git"
+  },
   "author": "hyungkyulee <hyungkyu@deepeyes.co.uk> (https://github.com/hyungkyulee)",
   "license": "MIT",
   "bugs": {
@@ -51,13 +53,14 @@
     "registry": "https://registry.npmjs.org/"
   },
   "devDependencies": {
-    "@evilmartians/lefthook": "^1.2.2",
     "@commitlint/config-conventional": "^17.0.2",
+    "@evilmartians/lefthook": "^1.2.2",
     "@react-native-community/eslint-config": "^3.0.2",
     "@release-it/conventional-changelog": "^5.0.0",
-    "@types/jest": "^28.1.2",
-    "@types/react": "~17.0.21",
-    "@types/react-native": "0.70.0",
+    "@types/jest": "^29.4.0",
+    "@types/react": "^18.0.28",
+    "@types/react-native": "^0.71.3",
+    "@types/react-test-renderer": "^18.0.0",
     "commitlint": "^17.0.2",
     "del-cli": "^5.0.0",
     "eslint": "^8.4.1",
@@ -70,10 +73,7 @@
     "react-native": "0.71.3",
     "react-native-builder-bob": "^0.20.4",
     "release-it": "^15.0.0",
-    "typescript": "^4.5.2"
-  },
-  "resolutions": {
-    "@types/react": "17.0.21"
+    "typescript": "^4.9.5"
   },
   "peerDependencies": {
     "react": "*",
@@ -82,7 +82,6 @@
   "engines": {
     "node": ">= 16.0.0"
   },
-  "packageManager": "^yarn@1.22.15",
   "jest": {
     "preset": "react-native",
     "modulePathIgnorePatterns": [
@@ -124,9 +123,11 @@
         {
           "quoteProps": "consistent",
           "singleQuote": true,
+          "jsxSingleQuote": true,
           "tabWidth": 2,
           "trailingComma": "es5",
-          "useTabs": false
+          "useTabs": false,
+          "semi": false
         }
       ]
     }
@@ -138,9 +139,11 @@
   "prettier": {
     "quoteProps": "consistent",
     "singleQuote": true,
+    "jsxSingleQuote": true,
     "tabWidth": 2,
     "trailingComma": "es5",
-    "useTabs": false
+    "useTabs": false,
+    "semi": false
   },
   "react-native-builder-bob": {
     "source": "src",
@@ -155,5 +158,13 @@
         }
       ]
     ]
+  },
+  "directories": {
+    "example": "example"
+  },
+  "dependencies": {
+    "native-base": "^3.4.26",
+    "react-native-safe-area-context": "3.3.2",
+    "react-native-svg": "12.1.1"
   }
 }
